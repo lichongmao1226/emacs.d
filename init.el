@@ -26,13 +26,26 @@
   (add-to-list 'load-path (expand-file-name dir user-emacs-directory)))
 
 ;; 引入模块
-(require 'init-evil)
 (require 'init-themes)
+(require 'init-evil)
+(require 'init-helm)
+(require 'init-winum)
 (require 'init-keybind)
-
 
 ;; 导出模块为init
 (provide 'init)
 
 
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

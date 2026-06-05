@@ -23,6 +23,17 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
+;; 设置字体大小
+(set-face-attribute
+ 'default
+ nil
+ :font "FiraCode Nerd Font"
+ :height 160)
+
+(set-face-attribute
+ 'mode-line
+ nil
+ :height 150)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
