@@ -67,5 +67,10 @@
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
+(defun win/switch-to-messages-buffer ()
+  "Switch to the *Messages* buffer."
+  (interactive)
+  (switch-to-buffer "*Messages*"))
+
 (provide 'init-winum)
 ;;; init-winum.el ends here

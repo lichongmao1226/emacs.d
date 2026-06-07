@@ -28,7 +28,7 @@
  'default
  nil
  :font "FiraCode Nerd Font"
- :height 160)
+ :height 200)
 
 (set-face-attribute
  'mode-line

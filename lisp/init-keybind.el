@@ -3,141 +3,45 @@
 
 ;;; Code:
 
-;; 引入需要的模块
-(require 'which-key)
-(require 'evil)
-(require 'helm)
+;; SPC+
+(keybind/leader
+ "SPC" '(helm-M-x :which-key "M-x")
+ "q" 'keyboard-escape-quit :which-key "quit")
 
-;; 启用快捷键提示
-(which-key-mode 1)
+;; Applictaions
+(keybind/leader
+ "a" '(:ignore t :which-key "Applictaions")
+ "au" '(vundo :which-key "undo-tree"))
 
-;; 定义全局leader按键
-(defvar my-leader-map nil
-  "Global leader keymap.")
-(define-prefix-command 'my-leader-map)
-(global-set-key (kbd "SPC")
-                'my-leader-map)
+;; Buffers
+(keybind/leader
+ "b"  '(:ignore t :which-key "Buffers")
+ "bb" '(helm-mini :which-key "List Buffers")
+ "bd" '(kill-current-buffer :which-key "Kill Buffer")
+ "TAB" '(win/alternate-buffer :which-key "Last Buffer")
+ "bm" '(win/switch-to-messages-buffer :which-key "Messages")
+ "bw" '(read-only-mode :which-key "read-only")
+ )
 
-;; 取消evil模式对SPC按键的绑定
+;; Files
+(keybind/leader
+ "f"  '(:ignore t :which-key "Files")
+ "ff" '(helm-find-files :which-key "Find file")
+ "fr" '(helm-recentf :which-key "Recent files")
+ "fs" '(save-buffer :which-key "Save buffer")
+ "fS" '(write-file :which-key "Save as")
+ "fd" '(dired :which-key "Dired"))
 
-;; (evil-define-key
-;;   'normal
-;;   'global
-;;   (kbd "SPC")
-;;   my-leader-map)
+;; Windows
+(keybind/leader
+ "w"  '(:ignore t :which-key "Windows")
+ "w1" '(win/window-split-single-column :which-key "Single")
+ "w2" '(win/window-split-double-columns :which-key "Double Columns")
+ "w3" '(win/window-split-triple-columns :which-key "Triple Columns")
+ "w4" '(win/window-split-grid :which-key "Grid")
+ "wd" '(delete-window :which-key "Delete Window")
+ "w=" '(balance-windows :which-key "Balance Windows"))
 
-(define-key evil-normal-state-map
-            (kbd "SPC")
-            my-leader-map)
-
-(define-key evil-motion-state-map
-            (kbd "SPC")
-            my-leader-map)
-
-;; 定义helm与操作文件相关的快捷键
-(defvar my-file-map nil)
-(define-prefix-command 'my-file-map)
-(define-key my-leader-map
-            (kbd "f")
-            my-file-map)
-
-(define-key my-leader-map
-            (kbd "SPC")
-            #'helm-M-x)
-
-(define-key my-file-map
-            (kbd "f")
-            #'helm-find-files)
-
-(define-key my-file-map
-            (kbd "r")
-            #'helm-recentf)
-
-(define-key my-file-map
-            (kbd "s")
-            #'save-buffer)
-
-(define-key my-file-map
-            (kbd "S")
-            #'write-file)
-
-(define-key my-file-map
-            (kbd "d")
-            #'dired)
-
-;; 定义窗口布局相关快捷键
-(defvar my-window-map nil
-  "Window commands.")
-
-(define-prefix-command 'my-window-map)
-
-(define-key my-leader-map
-            (kbd "w")
-            my-window-map)
-
-(define-key my-window-map
-            (kbd "1")
-            #'win/window-split-single-column)
-
-(define-key my-window-map
-            (kbd "2")
-            #'win/window-split-double-columns)
-
-(define-key my-window-map
-            (kbd "3")
-            #'win/window-split-triple-columns)
-
-(define-key my-window-map
-            (kbd "4")
-            #'win/window-split-grid)
-
-(define-key my-window-map
-            (kbd "d")
-            #'delete-window)
-
-(define-key my-window-map
-            (kbd "=")
-            #'balance-windows)
-
-;; 定义buffer相关快捷键
-(defvar my-buffer-map nil
-  "Buffer commands.")
-
-(define-prefix-command 'my-buffer-map)
-
-(define-key my-leader-map
-            (kbd "b")
-            my-buffer-map)
-
-(define-key my-leader-map
-            (kbd "TAB")
-            #'win/alternate-buffer)
-
-(define-key my-buffer-map
-            (kbd "b")
-            #'helm-mini)
-
-;; 定义路径标签
-(defun keybind/setup-which-key ()
-  "Configure which-key labels for leader key prefixes."
-  (which-key-add-keymap-based-replacements
-    my-leader-map
-    "f" "Files"
-    "w" "windows"
-    "TAB" "Last buffer")
-  (which-key-add-keymap-based-replacements
-    my-window-map
-    "1" "Single"
-    "2" "Double Columns"
-    "3" "Triple Columns"
-    "4" "Grid")
-  (which-key-add-keymap-based-replacements
-    my-buffer-map
-    "b" "list-buffers")
-  )
-
-;; 执行上面定义的函数
-(keybind/setup-which-key)
 
 (provide 'init-keybind)
 ;;; init-keybind.el ends here

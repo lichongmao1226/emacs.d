@@ -12,6 +12,13 @@
   (when (version< emacs-version minver)
     (error "Emacs版本过旧，请升级（该配置需要至少 v%s 或更高的版本）" minver)))
 
+;; 启动完成后恢复 GC 设置
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   (setq gc-cons-threshold (* 100 1024 1024))
+   (setq gc-cons-percentage 0.1)))
+
 ;; 添加插件源
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -27,10 +34,15 @@
 
 ;; 引入模块
 (require 'init-themes)
-(require 'init-evil)
+(require 'init-general)
 (require 'init-helm)
 (require 'init-winum)
+(require 'init-which-key)
+(require 'init-undo)
+
+;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
 (require 'init-keybind)
+(require 'init-evil)
 
 ;; 导出模块为init
 (provide 'init)
