@@ -19,29 +19,37 @@
    (setq gc-cons-threshold (* 100 1024 1024))
    (setq gc-cons-percentage 0.1)))
 
-;; 添加插件源
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-;; 添加包管理器
-(eval-when-compile
-  (require 'use-package))
 
 ;; 批量引入文件目录，使得指定目录下的文件可被载入（require）
-(dolist (dir '("lisp"))
+(dolist (dir '("lisp" "tests"))
   (add-to-list 'load-path (expand-file-name dir user-emacs-directory)))
 
-;; 引入模块
+;;; 引入模块
+
+;; 包管理
+(require 'init-packages)
+
+;; 主题设置
 (require 'init-themes)
+
+;;leader按键
 (require 'init-general)
-(require 'init-helm)
+
+;; 设置缓存文件目录
+(require 'init-cache)
+
+;; 功能模块
+;; (require 'init-helm)
+(require 'init-completion)
 (require 'init-winum)
 (require 'init-which-key)
 (require 'init-undo)
+(require 'init-magit)
+(require 'init-projectile)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
-(require 'init-keybind)
+;; (require 'init-keybind)
+(load (expand-file-name "tests/init-keybind.el" user-emacs-directory))
 (require 'init-evil)
 
 ;; 导出模块为init

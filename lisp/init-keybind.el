@@ -11,7 +11,8 @@
 ;; Applictaions
 (keybind/leader
  "a" '(:ignore t :which-key "Applictaions")
- "au" '(vundo :which-key "undo-tree"))
+ "au" '(vundo :which-key "undo-tree")
+ "ap" '(list-processes :which-key "list-processes"))
 
 ;; Buffers
 (keybind/leader
@@ -31,6 +32,22 @@
  "fs" '(save-buffer :which-key "Save buffer")
  "fS" '(write-file :which-key "Save as")
  "fd" '(dired :which-key "Dired"))
+
+;; Magit
+(keybind/leader
+ "g" '(:ignore t :which-key "Git")
+ "gs" '(magit-status :which-key "magit-status"))
+
+;; Projects
+(keybind/leader
+ "p" '(:ignore t :which-key "Projects")
+ "pp" '(projectile-switch-project :which-key "switch-project")
+ "pr" '(projectile-recentf :which-key "projectile-recentf"))
+
+;; Search
+(keybind/leader
+ "s" '(:ignore t :which-key "Search")
+ "ss" '(helm-occur :which-key "helm-occur"))
 
 ;; Windows
 (keybind/leader

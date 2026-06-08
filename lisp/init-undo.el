@@ -12,11 +12,6 @@
   :init
   (undo-fu-session-global-mode))
 
-(setq undo-fu-session-directory
-      (expand-file-name
-       "user-cache/undo/"
-       user-emacs-directory))
-
 (use-package vundo
   :ensure t
   :custom

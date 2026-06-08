@@ -72,5 +72,12 @@
   (interactive)
   (switch-to-buffer "*Messages*"))
 
+(defun win/open-bottom-window (buffer)
+  "Open BUFFER in a bottom side window."
+  (display-buffer-in-side-window
+   buffer
+   '((side . bottom)
+     (window-height . 0.5))))
+
 (provide 'init-winum)
 ;;; init-winum.el ends here

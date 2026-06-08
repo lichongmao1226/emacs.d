@@ -35,5 +35,8 @@
  nil
  :height 150)
 
+;; 设置窗口透明度
+(set-frame-parameter (selected-frame) 'alpha '(100 . 75))
+
 (provide 'init-themes)
 ;;; init-themes.el ends here
