@@ -38,5 +38,53 @@
 ;; 设置窗口透明度
 (set-frame-parameter (selected-frame) 'alpha '(100 . 75))
 
+;; 配置mode-line
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :custom
+
+  ;; 高度
+  (doom-modeline-height 32)
+
+  ;; 左侧色条
+  (doom-modeline-bar-width 3)
+
+  ;; 时间
+  (display-time-mode 1)
+  (display-time-format "%H:%M:%S") ;; 24小时时分秒格式
+  (display-time-interval 1) ;; 每秒刷新
+
+  ;; 设置行列
+  (line-number-mode 1)
+  (column-number-mode 1)
+  (mode-line-position-column-line-format '("%l:%c"))
+
+  ;; Nerd Font 图标
+  (doom-modeline-icon t)
+
+  ;; Major mode 图标
+  (doom-modeline-major-mode-icon t)
+  (doom-modeline-major-mode-color-icon t)
+
+  ;; 文件路径显示
+  (doom-modeline-buffer-file-name-style
+   'relative-from-project)
+
+  ;; Git
+  (doom-modeline-vcs-max-length 15)
+
+  ;; LSP
+  (doom-modeline-lsp t)
+
+  ;; 位置百分比
+  (setq doom-modeline-percent-position '(-3 "%p"))
+
+  ;; 去除噪音
+  (doom-modeline-minor-modes nil)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-workspace-name nil)
+  (doom-modeline-env-version nil))
+
 (provide 'init-themes)
 ;;; init-themes.el ends here

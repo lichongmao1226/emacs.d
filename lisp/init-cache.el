@@ -34,5 +34,17 @@
 (unless (file-directory-p undo-fu-session-directory)
   (make-directory undo-fu-session-directory t))
 
+;; Transient
+(setq transient-history-file
+      (expand-file-name
+       "transient/history.el"
+       cache/cache-dir))
+
+;; multisession
+(setq multisession-directory
+      (expand-file-name
+       "multisession/"
+       cache/cache-dir))
+
 (provide 'init-cache)
 ;;; init-cache.el ends here

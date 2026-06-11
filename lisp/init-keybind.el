@@ -5,7 +5,7 @@
 
 ;; SPC+
 (keybind/leader
- "SPC" '(helm-M-x :which-key "M-x")
+ "SPC" '(execute-extended-command :which-key "M-x")
  "q" 'keyboard-escape-quit :which-key "quit")
 
 ;; Applictaions
@@ -17,7 +17,7 @@
 ;; Buffers
 (keybind/leader
  "b"  '(:ignore t :which-key "Buffers")
- "bb" '(helm-mini :which-key "List Buffers")
+ "bb" '(consult-buffer :which-key "List Buffers")
  "bd" '(kill-current-buffer :which-key "Kill Buffer")
  "TAB" '(win/alternate-buffer :which-key "Last Buffer")
  "bm" '(win/switch-to-messages-buffer :which-key "Messages")
@@ -27,8 +27,8 @@
 ;; Files
 (keybind/leader
  "f"  '(:ignore t :which-key "Files")
- "ff" '(helm-find-files :which-key "Find file")
- "fr" '(helm-recentf :which-key "Recent files")
+ "ff" '(find-file :which-key "Find file")
+ "fr" '(recentf :which-key "Recent files")
  "fs" '(save-buffer :which-key "Save buffer")
  "fS" '(write-file :which-key "Save as")
  "fd" '(dired :which-key "Dired"))
@@ -47,7 +47,8 @@
 ;; Search
 (keybind/leader
  "s" '(:ignore t :which-key "Search")
- "ss" '(helm-occur :which-key "helm-occur"))
+ "ss" '(consult-line :which-key "consult-line")
+ "sp" '(consult-ripgrep :which-key "search project"))
 
 ;; Windows
 (keybind/leader
@@ -59,6 +60,10 @@
  "wd" '(delete-window :which-key "Delete Window")
  "w=" '(balance-windows :which-key "Balance Windows"))
 
+;; Yank
+(keybind/leader
+ "y" '(:ignore t which-key "Yank")
+ "yy" '(consult-yank-pop :which-key "yank history"))
 
 (provide 'init-keybind)
 ;;; init-keybind.el ends here

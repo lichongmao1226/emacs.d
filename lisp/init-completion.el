@@ -43,7 +43,9 @@
 (use-package orderless
   :ensure t
   :custom
-  (completion-styles '(orderless basic)))
+  (completion-styles '(orderless basic))
+  (orderless-component-separator #'orderless-escapable-split-on-space)
+  )
 
 ;; 增强注释信息
 (use-package marginalia

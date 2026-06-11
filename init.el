@@ -21,7 +21,7 @@
 
 
 ;; 批量引入文件目录，使得指定目录下的文件可被载入（require）
-(dolist (dir '("lisp" "tests"))
+(dolist (dir '("lisp"))
   (add-to-list 'load-path (expand-file-name dir user-emacs-directory)))
 
 ;;; 引入模块
@@ -39,17 +39,20 @@
 (require 'init-cache)
 
 ;; 功能模块
-;; (require 'init-helm)
+;; (load (expand-file-name "tests/init-helm.el" user-emacs-directory)) ;; 已淘汰的模块
+(require 'init-startup)
 (require 'init-completion)
 (require 'init-winum)
 (require 'init-which-key)
 (require 'init-undo)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-company)
+(require 'init-smartparens)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
-;; (require 'init-keybind)
-(load (expand-file-name "tests/init-keybind.el" user-emacs-directory))
+;; (load (expand-file-name "tests/init-keybind.el" user-emacs-directory)) ;; 已淘汰的模块
+(require 'init-keybind)
 (require 'init-evil)
 
 ;; 导出模块为init
