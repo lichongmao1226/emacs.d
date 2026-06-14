@@ -26,7 +26,9 @@
 
   :config
   (helm-mode 1)
-  (helm-autoresize-mode 1))
+  (helm-autoresize-mode 1)
+  )
+
 
 ;; (use-package consult
 ;;   :ensure t)

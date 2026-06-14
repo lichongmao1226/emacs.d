@@ -86,5 +86,12 @@
   (doom-modeline-workspace-name nil)
   (doom-modeline-env-version nil))
 
+;; 设置光标行位置
+(use-package centered-cursor-mode
+  :demand
+  :config
+  ;; Optional, enables centered-cursor-mode in all buffers.
+  (global-centered-cursor-mode))
+
 (provide 'init-themes)
 ;;; init-themes.el ends here

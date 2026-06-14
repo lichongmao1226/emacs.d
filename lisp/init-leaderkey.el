@@ -1,4 +1,4 @@
-;;; init-keybind.el --- init-keybind -*- lexical-binding: t -*-
+;;; init-leaderkey.el --- init-leaderkey -*- lexical-binding: t -*-
 ;;; Commentary:
 
 ;;; Code:
@@ -72,5 +72,5 @@
  "y" '(:ignore t which-key "Yank")
  "yy" '(consult-yank-pop :which-key "yank history"))
 
-(provide 'init-keybind)
-;;; init-keybind.el ends here
+(provide 'init-leaderkey)
+;;; init-leaderkey.el ends here

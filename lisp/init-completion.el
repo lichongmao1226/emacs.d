@@ -18,8 +18,6 @@
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
   :init
-  ;; 设置缓存目录
-  (setq savehist-file (expand-file-name "user-cache/savehist" user-emacs-directory))
   (savehist-mode))
 
 ;; 优化Emacs体验
@@ -76,6 +74,22 @@
 (use-package embark-consult
   :ensure t
   :after (embark consult))
+
+;; 代码自动格式化
+(use-package apheleia
+  :ensure t
+  :init
+  (apheleia-global-mode +1)
+  :config
+  ;; Emacs Lisp
+  (setf (alist-get 'emacs-lisp-mode apheleia-mode-alist)
+        'lisp-indent)
+  ;; Python
+  (setf (alist-get 'python-mode apheleia-mode-alist)
+        'black)
+  ;; C/C++
+  (setf (alist-get 'c-mode apheleia-mode-alist)
+        'clang-format))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

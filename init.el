@@ -32,6 +32,9 @@
 ;; 主题设置
 (require 'init-themes)
 
+;;按键重绑定
+(require 'init-key-overrides)
+
 ;;leader按键
 (require 'init-general)
 
@@ -47,12 +50,17 @@
 (require 'init-undo)
 (require 'init-magit)
 (require 'init-projectile)
-(require 'init-company)
+;; (require 'init-company)
+(require 'init-corfu)
 (require 'init-smartparens)
+(require 'init-eglot)
+;; (require 'init-lsp)
+;; (require 'init-flycheck)
+(require 'init-avy)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
 ;; (load (expand-file-name "tests/init-keybind.el" user-emacs-directory)) ;; 已淘汰的模块
-(require 'init-keybind)
+(require 'init-leaderkey)
 (require 'init-evil)
 
 ;; 导出模块为init

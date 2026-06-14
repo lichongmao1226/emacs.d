@@ -6,7 +6,8 @@
 (use-package dashboard
   :ensure t
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  )
 
 (provide 'init-startup)
 ;;; init-startup.el ends here

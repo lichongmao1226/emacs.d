@@ -21,6 +21,16 @@
 ;; 提高 GC 阈值
 (setq gc-cons-threshold most-positive-fixnum)
 
+;; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer
+(global-auto-revert-mode t)
+
+;; 显示相对行号
+(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+
+;; 全屏启动
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
 (provide 'early-init)
 
 ;;; early-init.el ends here
