@@ -38,7 +38,7 @@
 ;;leader按键
 (require 'init-general)
 
-;; 设置缓存文件目录
+;; 管理缓存
 (require 'init-cache)
 
 ;; 功能模块

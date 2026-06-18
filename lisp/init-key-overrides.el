@@ -10,9 +10,13 @@
 ;; 覆盖默认的不常用的emacs命令
 (with-eval-after-load 'evil
 
+  ;; 将M-X重新绑定为浏览历史命令
+  (global-set-key (kbd "M-X") nil)
+  (global-set-key (kbd "M-X") 'consult-complex-command)
+
   ;; 保存文件
-(global-set-key (kbd "M-s") nil)
-(global-set-key (kbd "M-s") 'save-buffer)
+  (global-set-key (kbd "M-s") nil)
+  (global-set-key (kbd "M-s") 'save-buffer)
 
   ;; 全屏跳转
   (define-key evil-normal-state-map

@@ -12,5 +12,12 @@
   :init
   (save-place-mode 1))
 
+;; 统计按键数据(keyfreq-show)
+(use-package keyfreq
+  :ensure t
+  :init
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
+
 (provide 'init-cache)
 ;;; init-cache.el ends here
