@@ -9,7 +9,7 @@
 (use-package undo-fu-session
   :ensure t
   :after undo-fu
-  :init
+  :config
   (undo-fu-session-global-mode))
 
 (use-package vundo

@@ -24,6 +24,12 @@
 (dolist (dir '("lisp"))
   (add-to-list 'load-path (expand-file-name dir user-emacs-directory)))
 
+;; 自定义配置
+(setq custom-file
+      (expand-file-name "var/custom.el"
+                        user-emacs-directory))
+(load custom-file 'noerror)
+
 ;;; 引入模块
 
 ;; 包管理
@@ -42,7 +48,6 @@
 (require 'init-cache)
 
 ;; 功能模块
-;; (load (expand-file-name "tests/init-helm.el" user-emacs-directory)) ;; 已淘汰的模块
 (require 'init-startup)
 (require 'init-completion)
 (require 'init-winum)
@@ -50,16 +55,12 @@
 (require 'init-undo)
 (require 'init-magit)
 (require 'init-projectile)
-;; (require 'init-company)
 (require 'init-corfu)
 (require 'init-smartparens)
 (require 'init-eglot)
-;; (require 'init-lsp)
-;; (require 'init-flycheck)
-(require 'init-avy)
+(require 'init-skeletor)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
-;; (load (expand-file-name "tests/init-keybind.el" user-emacs-directory)) ;; 已淘汰的模块
 (require 'init-leaderkey)
 (require 'init-evil)
 
@@ -68,15 +69,3 @@
 
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
