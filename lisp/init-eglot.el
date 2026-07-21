@@ -40,5 +40,25 @@
       uri)))
 (advice-add 'eglot-uri-to-path :override #'myfix/eglot-uri-to-path)
 
+
+(defun my-clangd-check-database ()
+  "使用 clangd --check 检查 compile_commands.json."
+  (when buffer-file-name
+    (let* ((file buffer-file-name)
+           (output
+            (shell-command-to-string
+             (format
+              "clangd --check=%s --log=verbose 2>&1"
+              file))))
+      (if (string-match
+           "Loaded compilation database from"
+           output)
+          (message "✓ clangd 编译数据库已加载！")
+        (message "⚠ clangd compilation database missing")))))
+
+(add-hook 'c++-mode-hook
+          #'my-clangd-check-database)
+
+
 (provide 'init-eglot)
 ;;; init-eglot.el ends here

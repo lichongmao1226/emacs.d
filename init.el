@@ -48,6 +48,8 @@
 (require 'init-cache)
 
 ;; 功能模块
+;; (load (expand-file-name "tests/init-function.el" user-emacs-directory))
+(require 'custom_function)
 (require 'init-startup)
 (require 'init-completion)
 (require 'init-winum)

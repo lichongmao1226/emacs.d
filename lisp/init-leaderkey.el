@@ -12,7 +12,8 @@
 (keybind/leader
   "a" '(:ignore t :which-key "Applictaions")
   "au" '(vundo :which-key "undo-tree")
-  "ap" '(list-processes :which-key "list-processes"))
+  "ap" '(list-processes :which-key "list-processes")
+  "as" '(alacritty-shell-command :which-key "alacritty shell"))
 
 ;; Buffers
 (keybind/leader
