@@ -60,6 +60,7 @@
 (require 'init-corfu)
 (require 'init-smartparens)
 (require 'init-eglot)
+(require 'init-flymake)
 (require 'init-skeletor)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突

@@ -15,9 +15,6 @@
      ((t (:background "#44475a")))))
   )
 
-(use-package flymake
-  :ensure t)
-
 ;; 修复中文路径下eglot+flymake不工作的问题
 (defun myfix/eglot-uri-to-path (uri)
   "Convert URI to file path, helped by `eglot-current-server'."

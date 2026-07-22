@@ -8,9 +8,9 @@
   "SPC" '(execute-extended-command :which-key "M-x")
   "q" 'keyboard-escape-quit :which-key "quit")
 
-;; Applictaions
+;; Applicaions
 (keybind/leader
-  "a" '(:ignore t :which-key "Applictaions")
+  "a" '(:ignore t :which-key "Applicaions")
   "au" '(vundo :which-key "undo-tree")
   "ap" '(list-processes :which-key "list-processes")
   "as" '(alacritty-shell-command :which-key "alacritty shell"))
@@ -24,6 +24,14 @@
   "bm" '(win/switch-to-messages-buffer :which-key "Messages")
   "bw" '(read-only-mode :which-key "read-only")
   )
+
+;; Code & Diagnostics
+(keybind/leader
+  "c" '(:ignore t :which-key "Code")
+  "cd" '(flymake-show-buffer-diagnostics :which-key "buffer diagnostics")
+  "cD" '(flymake-show-project-diagnostics :which-key "project diagnostics")
+  "cn" '(flymake-goto-next-error :which-key "next error")
+  "cp" '(flymake-goto-prev-error :which-key "previous error"))
 
 ;; Files
 (keybind/leader
@@ -54,7 +62,7 @@
   "p" '(:ignore t :which-key "Projects")
   "pp" '(projectile-switch-project :which-key "switch-project")
   "pr" '(projectile-recentf :which-key "projectile-recentf")
-  "pf" '(projectile--find-file :which-key "project-find-file"))
+  "pf" '(projectile-find-file :which-key "project-find-file"))
 
 ;; Search
 (keybind/leader
@@ -74,7 +82,7 @@
 
 ;; Yank
 (keybind/leader
-  "y" '(:ignore t which-key "Yank")
+  "y" '(:ignore t :which-key "Yank")
   "yy" '(consult-yank-pop :which-key "yank history"))
 
 (provide 'init-leaderkey)

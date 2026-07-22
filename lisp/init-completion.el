@@ -113,7 +113,7 @@
             (region-end))))))
 
 (defun my/insert-region-into-minibuffer ()
-  "Insert saved region text into minibuffer if available和 minibuffer 为空时插入。"
+  "Insert saved region text into minibuffer if available和 minibuffer 为空时插入."
   (when (and my/region-text-for-minibuffer
              (minibufferp)
              (string-empty-p (minibuffer-contents))
