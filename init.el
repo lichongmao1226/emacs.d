@@ -62,6 +62,7 @@
 (require 'init-eglot)
 (require 'init-flymake)
 (require 'init-skeletor)
+(require 'init-env)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
 (require 'init-leaderkey)

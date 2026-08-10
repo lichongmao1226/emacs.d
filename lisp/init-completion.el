@@ -100,32 +100,5 @@
 (use-package anzu
   :ensure t)
 
-(defvar my/region-text-for-minibuffer nil
-  "Temporarily holds region text to inject into minibuffer.")
-
-(defun my/save-region-before-command ()
-  "Save active region text before any command runs."
-  (setq my/region-text-for-minibuffer
-        (when (use-region-p)
-          (string-trim
-           (buffer-substring-no-properties
-            (region-beginning)
-            (region-end))))))
-
-(defun my/insert-region-into-minibuffer ()
-  "Insert saved region text into minibuffer if available和 minibuffer 为空时插入."
-  (when (and my/region-text-for-minibuffer
-             (minibufferp)
-             (string-empty-p (minibuffer-contents))
-             (not (string-empty-p my/region-text-for-minibuffer)))
-    (insert my/region-text-for-minibuffer)
-    (setq my/region-text-for-minibuffer nil)))
-
-;; 每次命令执行前保存选区
-(add-hook 'pre-command-hook #'my/save-region-before-command)
-
-;; 进入 minibuffer 后插入
-(add-hook 'minibuffer-setup-hook #'my/insert-region-into-minibuffer)
-
 (provide 'init-completion)
 ;;; init-completion.el ends here
