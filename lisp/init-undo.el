@@ -14,6 +14,7 @@
 
 (use-package vundo
   :ensure t
+  :commands (vundo)
   :custom
   (vundo-compact-display t)
   )

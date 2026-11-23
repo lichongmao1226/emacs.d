@@ -78,7 +78,7 @@
   (doom-modeline-lsp t)
 
   ;; 位置百分比
-  (setq doom-modeline-percent-position '(-3 "%p"))
+  (doom-modeline-percent-position '(-3 "%p"))
 
   ;; 去除噪音
   (doom-modeline-minor-modes nil)

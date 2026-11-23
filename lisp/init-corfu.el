@@ -14,7 +14,7 @@
   (corfu-echo-documentation 0.25) ;; 自动显示文档
   (corfu-indexed-mode 1) ;; 显示数字索引
   (corfu-indexed-start 1) ;; 使索引从1开始
-  :init
+  :config
   (global-corfu-mode)
   )
 

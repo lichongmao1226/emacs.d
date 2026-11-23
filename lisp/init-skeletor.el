@@ -5,6 +5,7 @@
 
 (use-package skeletor
   :ensure t
+  :commands (skeletor-create-project)
   :custom
   ;; 设置模板存储位置
   (skeletor-user-directory

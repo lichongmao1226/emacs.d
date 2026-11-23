@@ -6,7 +6,7 @@
 (use-package magit
   :ensure t
   :commands (magit-status magit-blame)
-  :custom
+  :init
   (add-to-list
    'display-buffer-alist
    '("\\*magit:.*\\|\\*Magit.*\\*"

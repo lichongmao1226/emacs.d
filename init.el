@@ -20,9 +20,14 @@
    (setq gc-cons-percentage 0.1)))
 
 
-;; 批量引入文件目录，使得指定目录下的文件可被载入（require）
-(dolist (dir '("lisp"))
-  (add-to-list 'load-path (expand-file-name dir user-emacs-directory)))
+;; 引入文件目录，使得指定目录下的文件可被载入（require）
+(defconst my-emacs-config-directory
+  (file-name-directory
+   (or load-file-name user-init-file)))
+
+(add-to-list 'load-path
+             (expand-file-name "lisp/"
+                               my-emacs-config-directory))
 
 ;; 自定义配置
 (setq custom-file
@@ -63,6 +68,7 @@
 (require 'init-flymake)
 (require 'init-skeletor)
 (require 'init-env)
+(require 'init-avy)
 
 ;; 最后引入快捷键模块与evil模块。若提前加载evil 那么某些情况下SPC按键将与leader冲突
 (require 'init-leaderkey)
